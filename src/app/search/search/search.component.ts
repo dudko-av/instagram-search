@@ -17,7 +17,7 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {
     this.accessToken.get().switchMap(token => {
-      return this.api.users(`self/?access_token=${token}`);
+      return this.api.users('self/', { access_token: token });
     }).subscribe(res => {
       debugger
     });

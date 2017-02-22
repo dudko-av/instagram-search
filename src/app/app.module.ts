@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule, JsonpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 
@@ -20,7 +20,7 @@ import { SearchModule } from './search/search.module';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
+    HttpModule, JsonpModule,
     RouterModule.forRoot(appRoutes),
     StoreModule.provideStore(appState),
     //
