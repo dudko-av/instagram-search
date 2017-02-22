@@ -1,3 +1,32 @@
-<p>
-  search works!
-</p>
+<div class="flex-container"
+     fxLayout="row"
+     fxLayout.xs="column"
+     fxLayoutAlign="center start"
+     fxLayoutAlign.xs="start">
+  <div class="flex-container"
+       fxFlex="30%"
+       fxLayout="column"
+       fxLayout.xs="column"
+       fxLayoutAlign="center center"
+       fxLayoutAlign.xs="start">
+    <sebm-google-map [latitude]="lat" [longitude]="lng"
+                     (mapClick)="mapClick($event)">
+      <sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
+    </sebm-google-map>
+    <md-list>
+      <md-list-item *ngFor="let location of locations" (click)="getLocationMedia(location)">
+        {{ location.name }}
+      </md-list-item>
+    </md-list>
+  </div>
+  <div class="flex-container"
+       fxFlex="70%"
+       fxLayout="column"
+       fxLayout.xs="column"
+       fxLayoutAlign="center center"
+       fxLayoutAlign.xs="start">
+      <div *ngFor="let media of selfMedialList | async">
+        <img [src]="media.images.standard_resolution.url">
+      </div>
+  </div>
+</div>

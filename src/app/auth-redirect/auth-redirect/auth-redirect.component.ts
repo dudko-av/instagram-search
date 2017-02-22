@@ -25,7 +25,7 @@ export class AuthRedirectComponent implements OnInit {
     } else {
       window.location.assign(
         `https://api.instagram.com/oauth/authorize/` +
-        `?client_id=${this.clientId}&redirect_uri=${this.redirectUri}&response_type=token`
+        `?client_id=${this.clientId}&redirect_uri=${this.redirectUri}&response_type=token&scope=public_content`
       );
     }
   }

@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
+import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { appProviders } from './app.prividers';
@@ -23,6 +24,7 @@ import { SearchModule } from './search/search.module';
     HttpModule, JsonpModule,
     RouterModule.forRoot(appRoutes),
     StoreModule.provideStore(appState),
+    MaterialModule,
     //
     AuthRedirectModule,
     SearchModule
