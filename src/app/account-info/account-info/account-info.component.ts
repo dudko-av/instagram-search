@@ -17,6 +17,20 @@ interface Media {
   };
 }
 
+class Query {
+  constructor (
+    public q: string,
+    public query_id: string,
+    public ref: string
+  ) { }
+}
+
+const tstReq = {
+  q: "ig_user(3077136265) {↵  follows.first(20) {↵    count,↵    page_info {↵      end_cursor,↵      has_next_page↵    },↵    nodes {↵      id,↵      is_verified,↵      followed_by_viewer,↵      requested_by_viewer,↵      full_name,↵      profile_pic_url,↵      username↵    }↵  }↵}↵",
+  query_id: "17867281162062470",
+  ref: "relationships::follow_list"
+};
+
 @Component({
   selector: 'app-account-info',
   templateUrl: './account-info.component.html',
@@ -44,4 +58,33 @@ export class AccountInfoComponent implements OnInit {
       });
   }
 
+  query() {
+    this.api.query(tstReq).subscribe(res => {
+      debugger
+    });
+  }
+
 }
+/*
+ "ig_user(3077136265) {
+ follows.first(20) {
+ count,
+ page_info {
+ end_cursor,
+ has_next_page
+ },
+ nodes {
+ id,
+ is_verified,
+ followed_by_viewer,
+ requested_by_viewer,
+ full_name,
+ profile_pic_url,
+ username
+ }
+ }
+ }
+ "
+ */
+
+
