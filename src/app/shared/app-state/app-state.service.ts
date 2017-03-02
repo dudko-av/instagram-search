@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Action } from '@ngrx/store';
+import { Action, Store } from '@ngrx/store';
 
 @Injectable()
 export class AppStateService {
 
-  constructor() { }
+  constructor(private store: Store<any>) { }
 
-  static accessTokenReducer(state?: string, action?: Action) {
+  select(name: string) {
+    return this.store.select(name);
+  }
 
+  dispatch(type: string, payload: any) {
+    this.store.dispatch({ type, payload });
   }
 
 }

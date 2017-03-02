@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -25,6 +26,7 @@ import { AccountInfoModule } from './account-info/account-info.module';
     HttpModule, JsonpModule,
     RouterModule.forRoot(appRoutes),
     StoreModule.provideStore(appState),
+    StoreDevtoolsModule.instrumentOnlyWithExtension(),
     MaterialModule,
     //
     AuthRedirectModule,
