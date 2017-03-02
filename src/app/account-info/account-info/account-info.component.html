@@ -14,6 +14,10 @@
     </md-input-container>
     <button (click)="accountInfo()">search</button>
     <button (click)="query()">query</button>
+    <ul>
+      <li>{{ (hashtags | async).length }}</li>
+      <li *ngFor="let ht of hashtags | async">({{ ht.count }}) {{ ht.text }}</li>
+    </ul>
   </div>
   <div class="flex-container"
        fxFlex="70%"
@@ -22,7 +26,8 @@
        fxLayoutAlign="center center"
        fxLayoutAlign.xs="start">
     <div *ngFor="let media of mediaList | async">
-      <img [src]="media.thumbnail_src">
+      <!--<img [src]="media.thumbnail_src" style="max-width: 150px;">-->
+      <p>{{ media.caption }}</p>
     </div>
   </div>
 </div>
