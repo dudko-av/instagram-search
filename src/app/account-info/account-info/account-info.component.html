@@ -1,0 +1,27 @@
+<div class="flex-container"
+     fxLayout="row"
+     fxLayout.xs="column"
+     fxLayoutAlign="center start"
+     fxLayoutAlign.xs="start">
+  <div class="flex-container"
+       fxFlex="30%"
+       fxLayout="column"
+       fxLayout.xs="column"
+       fxLayoutAlign="center center"
+       fxLayoutAlign.xs="start">
+    <md-input-container>
+      <input mdInput [formControl]="account">
+    </md-input-container>
+    <button (click)="accountInfo()">search</button>
+  </div>
+  <div class="flex-container"
+       fxFlex="70%"
+       fxLayout="column"
+       fxLayout.xs="column"
+       fxLayoutAlign="center center"
+       fxLayoutAlign.xs="start">
+    <div *ngFor="let media of mediaList | async">
+      <img [src]="media.thumbnail_src">
+    </div>
+  </div>
+</div>

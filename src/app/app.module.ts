@@ -13,6 +13,7 @@ import { appState } from './shared/app-state/app.state';
 
 import { AuthRedirectModule } from './auth-redirect/auth-redirect.module';
 import { SearchModule } from './search/search.module';
+import { AccountInfoModule } from './account-info/account-info.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { SearchModule } from './search/search.module';
     MaterialModule,
     //
     AuthRedirectModule,
-    SearchModule
+    SearchModule,
+    AccountInfoModule
   ],
   providers: appProviders,
   bootstrap: [AppComponent]
