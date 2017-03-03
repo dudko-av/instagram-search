@@ -6,7 +6,6 @@ export class DefaultReducer {
   name: string;
 
   constructor(private store: Store<any>) {
-    debugger
   }
 
   set(val: any) {
@@ -18,7 +17,6 @@ export class DefaultReducer {
   }
 
   reduce(state: any, action: Action) {
-    debugger
     return state;
   }
 

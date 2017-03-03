@@ -16,6 +16,9 @@ import { AuthRedirectModule } from './auth-redirect/auth-redirect.module';
 import { SearchModule } from './search/search.module';
 import { AccountInfoModule } from './account-info/account-info.module';
 
+import { StoreReducerModule } from './shared/store-reducer/store-reducer.module';
+import { AppStoreService } from './shared/app-store/app-store.service';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -25,8 +28,9 @@ import { AccountInfoModule } from './account-info/account-info.module';
     FormsModule,
     HttpModule, JsonpModule,
     RouterModule.forRoot(appRoutes),
-    StoreModule.provideStore(appState),
-    StoreDevtoolsModule.instrumentOnlyWithExtension(),
+    StoreReducerModule.forRoot(AppStoreService),
+/*    StoreModule.provideStore(appState),
+    StoreDevtoolsModule.instrumentOnlyWithExtension(),*/
     MaterialModule,
     //
     AuthRedirectModule,
