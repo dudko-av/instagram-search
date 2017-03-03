@@ -1,5 +1,4 @@
 import { AccessTokenService } from './model/access-token/access-token.service';
+import { appState as state } from '../app-store/app-store.service';
 
-export const appState = {
-  accessToken: AccessTokenService.reducer
-};
+export const appState = state;

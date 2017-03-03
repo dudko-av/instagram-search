@@ -4,33 +4,24 @@ import { LocalStorageService } from '../../../local-storage/local-storage.servic
 
 @Injectable()
 export class AccessTokenService {
+  name = 'accessToken';
 
   constructor(
     private store: Store<any>,
     private localStorage: LocalStorageService
   ) {
     this.get().subscribe(token => {
-      this.localStorage.set('accessToken', token);
+      this.localStorage.set(this.name, token);
     });
-    this.set(this.localStorage.get('accessToken'));
+    this.set(this.localStorage.get(this.name));
   }
 
   set(token: string) {
-    this.store.dispatch({ type: 'AccessTokenService.set', payload: token });
+    this.store.dispatch({ type: `${this.name}.set`, payload: token });
   }
 
   get() {
-    return this.store.select<string>('accessToken');
-  }
-
-  static reducer(state: string, action: Action) {
-    switch (action.type) {
-      case 'AccessTokenService.set':
-        return action.payload;
-
-      default:
-        return state;
-    }
+    return this.store.select<string>(this.name);
   }
 
 }
