@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Jsonp, URLSearchParams, Http, Headers, RequestOptions } from '@angular/http';
-import { AccessTokenService } from '../app-state/model/access-token/access-token.service';
 import 'rxjs/add/operator/first';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 import { Observable } from 'rxjs/Observable';
+import { AppStoreService } from '../app-store/app-store.service';
 
 @Injectable()
 export class InstagramApiService {
@@ -13,11 +13,11 @@ export class InstagramApiService {
   constructor(
     private jsonp: Jsonp,
     private http: Http,
-    private accessToken: AccessTokenService
+    private store: AppStoreService
   ) { }
 
   request(endpoint: string, params: any = {}) {
-    return this.accessToken.get().first().switchMap(token => {
+    return this.store.accessToken.get().first().switchMap(token => {
       const search = new URLSearchParams();
       search.set('access_token', token);
       Object.keys(params).forEach(key => {

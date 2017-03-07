@@ -1,15 +1,11 @@
-import { Injectable, Injector, ReflectiveInjector } from '@angular/core';
-import { DefaultReducer } from '../store-reducer/reducer/default-reducer';
-import { AccessTokenService } from '../app-state/model/access-token/access-token.service';
-import { Reducer } from '../store-reducer/reducer.decorator';
+import { Injectable } from '@angular/core';
+import { Reducer } from '../ngrx-storage-module/reducer.decorator';
+import { DefaultReducer } from '../ngrx-storage-module/default-reducer/default-reducer.service';
 
 @Injectable()
 export class AppStoreService {
-  @Reducer() accessToken: AccessTokenService;
-  @Reducer() user: DefaultReducer;
-  @Reducer() list: DefaultReducer;
+  @Reducer() accessToken: DefaultReducer<string>;
 
-  constructor(injector: Injector) { debugger
-  }
+  constructor() { }
 
 }
